@@ -13,8 +13,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.businesscard2.ui.theme.BusinessCard2Theme
 
@@ -28,7 +26,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    BusinessCard(
+                        imageRes = R.drawable.android_logo,
+                        name = "Darren Loeffler",
+                        title = "Android Dev Birb"
+                    )
                 }
             }
         }
@@ -36,9 +38,18 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun BusinessCard() {
-    Column {
-        CardHeader()
+fun BusinessCard(
+    @DrawableRes imageRes: Int,
+    name: String,
+    title: String,
+    modifier: Modifier = Modifier
+) {
+    Column(modifier = modifier) {
+        CardHeader(
+            imageRes = imageRes,
+            name = name,
+            title = title
+        )
     }
 }
 
@@ -54,6 +65,8 @@ fun CardHeader(
         Text(text = title)
     }
 }
+
+
 
 @Preview(showBackground = true)
 @Composable
