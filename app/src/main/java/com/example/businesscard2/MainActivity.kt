@@ -7,7 +7,9 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -70,7 +72,33 @@ fun CardHeader(
 }
 
 @Composable
-fun CardContactInfo(phoneNumber: String, ) {
+fun CardContactInfo(
+    @StringRes phoneNumber: Int,
+    @StringRes socialMediaHandle: Int,
+    @StringRes email: Int,
+    modifier: Modifier = Modifier
+) {
+    Column(modifier = modifier) {
+
+
+    }
+
+}
+
+@Composable
+fun ContactItem(
+    @DrawableRes icon: Int,
+    @StringRes contactInfo: Int
+) {
+    Row {
+        Icon(
+            painter = painterResource(id = icon),
+            contentDescription = null
+        )
+        Text(
+            text = stringResource(id = contactInfo)
+        )
+    }
 
 }
 
