@@ -33,7 +33,8 @@ class MainActivity : ComponentActivity() {
                     BusinessCard(
                         headerImage = R.drawable.android_logo,
                         headerName = R.string.darren_loeffler,
-                        headerTitle = R.string.android_dev_birb
+                        headerTitle = R.string.android_dev_birb,
+
                     )
                 }
             }
@@ -46,28 +47,41 @@ fun BusinessCard(
     @DrawableRes headerImage: Int,
     @StringRes headerName: Int,
     @StringRes headerTitle: Int,
+    @StringRes phoneNumber: Int,
+    @StringRes socialMediaHandle: Int,
+    @StringRes email: Int,
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier) {
         CardHeader(
-            image = headerImage,
             name = headerName,
             title = headerTitle
+        )
+        CardContactInfo(
+            phoneNumber = phoneNumber,
+            socialMediaHandle = socialMediaHandle,
+            email = email,
         )
     }
 }
 
 @Composable
 fun CardHeader(
-    @DrawableRes image: Int,
     @StringRes name: Int,
     @StringRes title: Int,
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier) {
-        Image(painter = painterResource(id = image), contentDescription = null)
-        Text(text = stringResource(id = name))
-        Text(text = stringResource(id = title))
+        Image(
+            painter = painterResource(id = R.drawable.android_logo),
+            contentDescription = null
+        )
+        Text(
+            text = stringResource(id = name)
+        )
+        Text(
+            text = stringResource(id = title)
+        )
     }
 }
 
@@ -79,10 +93,10 @@ fun CardContactInfo(
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier) {
-
-
+        ContactItem(icon = , contactInfo = phoneNumber)
+        ContactItem(icon = , contactInfo = socialMediaHandle)
+        ContactItem(icon = , contactInfo = email)
     }
-
 }
 
 @Composable
