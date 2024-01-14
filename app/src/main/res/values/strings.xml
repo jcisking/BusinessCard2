@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Business Card 2</string>
+    <string name="darren_loeffler">Darren Loeffler</string>
+    <string name="android_dev_birb">Android Dev Birb</string>
 </resources>

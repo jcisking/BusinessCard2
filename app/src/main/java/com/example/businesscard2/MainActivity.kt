@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.businesscard2.ui.theme.BusinessCard2Theme
 
@@ -27,9 +29,9 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     BusinessCard(
-                        imageRes = R.drawable.android_logo,
-                        name = "Darren Loeffler",
-                        title = "Android Dev Birb"
+                        headerImage = R.drawable.android_logo,
+                        headerName = R.string.darren_loeffler,
+                        headerTitle = R.string.android_dev_birb
                     )
                 }
             }
@@ -39,31 +41,37 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun BusinessCard(
-    @DrawableRes imageRes: Int,
-    name: String,
-    title: String,
+    @DrawableRes headerImage: Int,
+    @StringRes headerName: Int,
+    @StringRes headerTitle: Int,
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier) {
         CardHeader(
-            imageRes = imageRes,
-            name = name,
-            title = title
+            image = headerImage,
+            name = headerName,
+            title = headerTitle
         )
     }
 }
 
 @Composable
 fun CardHeader(
-    @DrawableRes imageRes: Int,
-    name: String, title: String,
+    @DrawableRes image: Int,
+    @StringRes name: Int,
+    @StringRes title: Int,
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier) {
-        Image(painter = painterResource(id = imageRes), contentDescription = null)
-        Text(text = name)
-        Text(text = title)
+        Image(painter = painterResource(id = image), contentDescription = null)
+        Text(text = stringResource(id = name))
+        Text(text = stringResource(id = title))
     }
+}
+
+@Composable
+fun CardContactInfo(phoneNumber: String, ) {
+
 }
 
 
