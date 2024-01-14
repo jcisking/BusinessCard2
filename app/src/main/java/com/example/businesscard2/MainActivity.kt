@@ -31,10 +31,11 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     BusinessCard(
-                        headerImage = R.drawable.android_logo,
                         headerName = R.string.darren_loeffler,
                         headerTitle = R.string.android_dev_birb,
-
+                        phoneNumber = R.string.phone_number,
+                        socialMediaHandle = R.string.social_media_handle,
+                        email = R.string.email
                     )
                 }
             }
@@ -44,7 +45,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun BusinessCard(
-    @DrawableRes headerImage: Int,
     @StringRes headerName: Int,
     @StringRes headerTitle: Int,
     @StringRes phoneNumber: Int,
@@ -60,7 +60,7 @@ fun BusinessCard(
         CardContactInfo(
             phoneNumber = phoneNumber,
             socialMediaHandle = socialMediaHandle,
-            email = email,
+            email = email
         )
     }
 }

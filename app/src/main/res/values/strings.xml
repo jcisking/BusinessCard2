@@ -2,4 +2,7 @@
     <string name="app_name">Business Card 2</string>
     <string name="darren_loeffler">Darren Loeffler</string>
     <string name="android_dev_birb">Android Dev Birb</string>
+    <string name="phone_number">(520)661-7195</string>
+    <string name="social_media_handle">\@DarrenDaBirb</string>
+    <string name="email">darren.loeff@android.com</string>
 </resources>
