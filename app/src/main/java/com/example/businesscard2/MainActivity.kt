@@ -93,9 +93,9 @@ fun CardContactInfo(
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier) {
-        ContactItem(icon = , contactInfo = phoneNumber)
-        ContactItem(icon = , contactInfo = socialMediaHandle)
-        ContactItem(icon = , contactInfo = email)
+        ContactItem(icon = R.drawable.call_black_24dp , contactInfo = phoneNumber)
+        ContactItem(icon = R.drawable.share_black_24dp, contactInfo = socialMediaHandle)
+        ContactItem(icon = R.drawable.email_black_24dp, contactInfo = email)
     }
 }
 
