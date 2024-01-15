@@ -6,18 +6,29 @@ import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.businesscard2.ui.theme.BusinessCard2Theme
 
 class MainActivity : ComponentActivity() {
@@ -35,7 +46,7 @@ class MainActivity : ComponentActivity() {
                         headerTitle = R.string.android_dev_birb,
                         phoneNumber = R.string.phone_number,
                         socialMediaHandle = R.string.social_media_handle,
-                        email = R.string.email
+                        email = R.string.email,
                     )
                 }
             }
@@ -92,7 +103,13 @@ fun CardContactInfo(
     @StringRes email: Int,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = modifier) {
+    Column(
+//        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+            .background(Color.Blue)
+//            .fillMaxWidth()
+//            .width(300.dp)
+    ) {
         ContactItem(icon = R.drawable.call_black_24dp , contactInfo = phoneNumber)
         ContactItem(icon = R.drawable.share_black_24dp, contactInfo = socialMediaHandle)
         ContactItem(icon = R.drawable.email_black_24dp, contactInfo = email)
@@ -102,9 +119,15 @@ fun CardContactInfo(
 @Composable
 fun ContactItem(
     @DrawableRes icon: Int,
-    @StringRes contactInfo: Int
+    @StringRes contactInfo: Int,
+    modifier: Modifier = Modifier
 ) {
-    Row {
+    Row(
+//        horizontalArrangement = Arrangement.Center,
+        modifier = modifier
+            .background(Color.Red)
+//            .fillMaxWidth()
+    ) {
         Icon(
             painter = painterResource(id = icon),
             contentDescription = null
