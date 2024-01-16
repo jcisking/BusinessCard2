@@ -65,14 +65,14 @@ fun BusinessCard(
     modifier: Modifier = Modifier
 ) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.background(Color(0xFFd4f7e4))
     ) {
         Spacer(modifier = Modifier.weight(1f))
 
         CardHeader(
             name = headerName,
             title = headerTitle,
-            modifier = Modifier.weight(1f)
         )
 
         Spacer(modifier = Modifier.weight(1f))
@@ -80,8 +80,7 @@ fun BusinessCard(
         CardContactInfo(
             phoneNumber = phoneNumber,
             socialMediaHandle = socialMediaHandle,
-            email = email,
-            modifier = Modifier.weight(1f)
+            email = email
         )
     }
 }
@@ -95,16 +94,18 @@ fun CardHeader(
     Column(modifier = modifier) {
         Image(
             modifier = Modifier
-                .background(Color.Cyan)
+                .background(Color(0xFF0b3c21))
                 .width(115.dp),
             painter = painterResource(id = R.drawable.android_logo),
             contentDescription = null
         )
         Text(
-            text = stringResource(id = name)
+            text = stringResource(id = name),
+            color = Color(0xFF136c3b)
         )
         Text(
-            text = stringResource(id = title)
+            text = stringResource(id = title),
+            color = Color(0xFF136c3b)
         )
     }
 }
@@ -118,7 +119,8 @@ fun CardContactInfo(
 ) {
     Column(
         verticalArrangement = Arrangement.Bottom,
-        modifier = Modifier.background(Color.Red).padding(bottom = 16.dp)
+        modifier = Modifier
+            .padding(bottom = 24.dp)
     ) {
         ContactItem(
             icon = R.drawable.call_black_24dp ,
@@ -143,12 +145,13 @@ fun ContactItem(
 ) {
     Row(
         modifier = modifier
-            .padding(bottom = 12.dp)
+            .padding(bottom = 16.dp)
     ) {
         Icon(
             painter = painterResource(id = icon),
             contentDescription = null,
-            modifier = Modifier.padding(end = 24.dp)
+            modifier = Modifier.padding(end = 24.dp),
+            tint = Color(0xFF136c3b)
         )
         Text(
             text = stringResource(id = contactInfo)
