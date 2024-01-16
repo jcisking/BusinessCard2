@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -63,15 +64,25 @@ fun BusinessCard(
     @StringRes email: Int,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = modifier) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ) {
+        Spacer(modifier = Modifier.weight(1f))
+
         CardHeader(
             name = headerName,
-            title = headerTitle
+            title = headerTitle,
+            modifier = Modifier.weight(1f)
         )
+
+        Spacer(modifier = Modifier.weight(1f))
+
         CardContactInfo(
             phoneNumber = phoneNumber,
             socialMediaHandle = socialMediaHandle,
-            email = email
+            email = email,
+            modifier = Modifier.weight(1f, false)
         )
     }
 }
@@ -84,6 +95,9 @@ fun CardHeader(
 ) {
     Column(modifier = modifier) {
         Image(
+            modifier = Modifier
+                .background(Color.Cyan)
+                .width(115.dp),
             painter = painterResource(id = R.drawable.android_logo),
             contentDescription = null
         )
@@ -110,9 +124,18 @@ fun CardContactInfo(
 //            .fillMaxWidth()
 //            .width(300.dp)
     ) {
-        ContactItem(icon = R.drawable.call_black_24dp , contactInfo = phoneNumber)
-        ContactItem(icon = R.drawable.share_black_24dp, contactInfo = socialMediaHandle)
-        ContactItem(icon = R.drawable.email_black_24dp, contactInfo = email)
+        ContactItem(
+            icon = R.drawable.call_black_24dp ,
+            contactInfo = phoneNumber
+        )
+        ContactItem(
+            icon = R.drawable.share_black_24dp,
+            contactInfo = socialMediaHandle
+        )
+        ContactItem(
+            icon = R.drawable.email_black_24dp,
+            contactInfo = email
+        )
     }
 }
 
