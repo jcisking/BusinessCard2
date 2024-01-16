@@ -65,8 +65,7 @@ fun BusinessCard(
     modifier: Modifier = Modifier
 ) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.weight(1f))
 
@@ -82,7 +81,7 @@ fun BusinessCard(
             phoneNumber = phoneNumber,
             socialMediaHandle = socialMediaHandle,
             email = email,
-            modifier = Modifier.weight(1f, false)
+            modifier = Modifier.weight(1f)
         )
     }
 }
@@ -118,11 +117,8 @@ fun CardContactInfo(
     modifier: Modifier = Modifier
 ) {
     Column(
-//        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
-            .background(Color.Blue)
-//            .fillMaxWidth()
-//            .width(300.dp)
+        verticalArrangement = Arrangement.Bottom,
+        modifier = Modifier.background(Color.Red).padding(bottom = 16.dp)
     ) {
         ContactItem(
             icon = R.drawable.call_black_24dp ,
@@ -146,20 +142,18 @@ fun ContactItem(
     modifier: Modifier = Modifier
 ) {
     Row(
-//        horizontalArrangement = Arrangement.Center,
         modifier = modifier
-            .background(Color.Red)
-//            .fillMaxWidth()
+            .padding(bottom = 12.dp)
     ) {
         Icon(
             painter = painterResource(id = icon),
-            contentDescription = null
+            contentDescription = null,
+            modifier = Modifier.padding(end = 24.dp)
         )
         Text(
             text = stringResource(id = contactInfo)
         )
     }
-
 }
 
 
