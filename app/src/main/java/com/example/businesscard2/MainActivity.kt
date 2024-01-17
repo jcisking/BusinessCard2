@@ -68,7 +68,7 @@ fun BusinessCard(
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.background(Color(0xFFd4f7e4))
+        modifier = modifier.background(Color(0xFFd4f7e4))
     ) {
         Spacer(modifier = Modifier.weight(1f))
 
