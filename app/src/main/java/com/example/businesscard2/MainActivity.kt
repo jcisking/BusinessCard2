@@ -28,8 +28,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.businesscard2.ui.theme.BusinessCard2Theme
 
 class MainActivity : ComponentActivity() {
@@ -91,20 +93,27 @@ fun CardHeader(
     @StringRes title: Int,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = modifier) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ) {
         Image(
             modifier = Modifier
                 .background(Color(0xFF0b3c21))
+                .padding(8.dp)
                 .width(115.dp),
             painter = painterResource(id = R.drawable.android_logo),
             contentDescription = null
         )
         Text(
             text = stringResource(id = name),
-            color = Color(0xFF136c3b)
+            modifier = Modifier.padding(bottom = 4.dp),
+            fontSize = 45.sp,
+            fontWeight = FontWeight.Light
         )
         Text(
             text = stringResource(id = title),
+            fontWeight = FontWeight.Bold,
             color = Color(0xFF136c3b)
         )
     }
